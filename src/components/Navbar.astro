@@ -2,8 +2,16 @@
 import ThemeDropdown from "./theme-dropdown";
 ---
 
-<nav class="flex">
-  <div>ponktoku.dev</div>
+<nav class="sticky flex justify-around">
+  <div class="">
+    <p>ponktoku.dev</p>
+    <ul class="flex gap-10">
+      <li>Writing</li>
+      <li>Note</li>
+      <li>Craft</li>
+      <li>Works</li>
+    </ul>
+  </div>
   <div class="">
     <ThemeDropdown client:load />
   </div>
