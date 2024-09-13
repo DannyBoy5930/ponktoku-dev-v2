@@ -3,15 +3,28 @@ import Navbar from "@/components/Navbar.astro";
 import ThemeHeadScript from "@/components/theme-head-script.astro";
 import Footer from "@/components/Footer.astro";
 
+import { SITE_TITLE, SITE_DESCRIPTION, X_ACCOUNT } from "@/consts";
+import { useTranslations, LOCALES, getLocalePaths, type Lang } from "@/i18n";
+const t = useTranslations(Astro.currentLocale as Lang);
+import "@/styles/globals.css";
+
 type Props = {
-  title: string;
+  title?: string;
+  description?: string;
+  frontmatter?: undefined;
 };
 
-const { title = "ponktoku.dev - Danny Bao's Homepage" } = Astro.props;
+const { title = "ponktoku.dev - Danny Bao's Homepage", description } =
+  Astro.props.frontmatter || Astro.props;
+
+const locale = Astro.currentLocale as Lang;
+const localeTitle = title ? `${title} - ${t(SITE_TITLE)}` : t(SITE_TITLE);
+const localeDescription = description || t(SITE_DESCRIPTION);
 ---
 
 <!doctype html>
 <html lang="en">
+  <!-- <html lang={LOCALES[locale].lang || locale} dir={LOCALES[locale].dir || null}> -->
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />

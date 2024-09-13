@@ -1,5 +1,13 @@
 ---
 import ThemeDropdown from "./theme-dropdown";
+import LanguageDropdown from "./language-dropdown";
+
+type Props = {
+  noI18n?: boolean;
+};
+
+const { props, url } = Astro;
+const { noI18n } = props;
 ---
 
 <nav class="sticky flex justify-around">
@@ -12,7 +20,8 @@ import ThemeDropdown from "./theme-dropdown";
       <li>Works</li>
     </ul>
   </div>
-  <div class="">
+  <div class="flex gap-1">
+    {noI18n && <LanguageDropdown client:load {url} />}
     <ThemeDropdown client:load />
   </div>
 </nav>
