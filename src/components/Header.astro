@@ -1,0 +1,25 @@
+---
+import ThemeDropdown from "./theme-dropdown";
+---
+
+<header
+  class="container mx-auto mt-10 flex max-w-screen-md items-center justify-between px-4 sm:px-0"
+>
+  <div>
+    <a href="/">ponktoku.dev</a>
+  </div>
+
+  <div class="flex items-center gap-10">
+    <nav>
+      <ul class="flex gap-5">
+        <li>Writing</li>
+        <li>Notes</li>
+        <li>Works</li>
+        <li>Explore</li>
+      </ul>
+    </nav>
+    <div>
+      <ThemeDropdown client:load />
+    </div>
+  </div>
+</header>
